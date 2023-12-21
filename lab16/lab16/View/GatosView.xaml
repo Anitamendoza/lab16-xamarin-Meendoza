@@ -1,0 +1,80 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="lab16.View.GatosView">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <Frame Padding="30" BackgroundColor="Purple">
+                    <StackLayout>
+                        <Label Text=" RAZAS DE GATOS"
+                         HorizontalTextAlignment="Center"
+                         TextColor="White"
+                         FontSize="28"
+                         FontFamily="Montserrat"/>
+                        <Label Text=" By Ana Mendoza"
+                         HorizontalTextAlignment="Center"
+                         TextColor="White"
+                         FontSize="15" 
+                            FontFamily="Montserrat"/>
+                    </StackLayout>
+                </Frame>
+
+                <ListView x:Name="gatosListView"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Frame Padding="8"
+                                   HeightRequest="180" 
+                                   HasShadow="True"
+                                   BorderColor="Purple"
+                                   BackgroundColor="#F5F5F5">
+
+                                    <RelativeLayout>
+
+                                        <Image Source="{Binding imagen}" 
+                                         Aspect="AspectFill"
+                                         HeightRequest="150"
+                                         WidthRequest="150">
+
+                                        </Image>
+
+                                        <StackLayout RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-10}"
+                                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=-75}"
+                                                 Orientation="Vertical">
+
+                                            <Label Text="{Binding nombre}"
+                                                   FontSize="20"
+                                                   TextColor="purple"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding caracteristicas}" 
+                                                   FontSize="14"
+                                                   TextColor="Purple"/>
+                                            <Label Text="{Binding tamano}"
+                                                   FontSize="14"
+                                                   TextColor="Purple" 
+                                                   FontAttributes="Italic"/>
+
+                                        </StackLayout>
+
+                                    </RelativeLayout>
+
+                                </Frame>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
